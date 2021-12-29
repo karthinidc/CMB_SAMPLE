@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :ScanditBarcodeScanner:@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/062efb3ebbf0e7f0262cfd08aef62caf/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/062efb3ebbf0e7f0262cfd08aef62caf/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/062efb3ebbf0e7f0262cfd08aef62caf/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

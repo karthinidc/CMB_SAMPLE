@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/InnovaZones.iml" filepath="$PROJECT_DIR$/.idea/modules/InnovaZones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2123194309/InnovaZones.@react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/2123194309/InnovaZones.@react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/292697612/InnovaZones.@sentry_react-native.iml" filepath="$PROJECT_DIR$/.idea/modules/292697612/InnovaZones.@sentry_react-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Rfid.AsciiProtocol-Library/InnovaZones.Rfid.AsciiProtocol-Library.iml" filepath="$PROJECT_DIR$/.idea/modules/Rfid.AsciiProtocol-Library/InnovaZones.Rfid.AsciiProtocol-Library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InnovaZones.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InnovaZones.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1577021407/InnovaZones.appcenter.iml" filepath="$PROJECT_DIR$/.idea/modules/1577021407/InnovaZones.appcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1502899688/InnovaZones.appcenter-analytics.iml" filepath="$PROJECT_DIR$/.idea/modules/-1502899688/InnovaZones.appcenter-analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/579550887/InnovaZones.appcenter-crashes.iml" filepath="$PROJECT_DIR$/.idea/modules/579550887/InnovaZones.appcenter-crashes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1823469319/InnovaZones.cmbsdk-react-native.iml" filepath="$PROJECT_DIR$/.idea/modules/-1823469319/InnovaZones.cmbsdk-react-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1166041701/InnovaZones.react-native-code-push.iml" filepath="$PROJECT_DIR$/.idea/modules/-1166041701/InnovaZones.react-native-code-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1479278370/InnovaZones.react-native-cookies.iml" filepath="$PROJECT_DIR$/.idea/modules/-1479278370/InnovaZones.react-native-cookies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/251143535/InnovaZones.react-native-datetime-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/251143535/InnovaZones.react-native-datetime-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-414808428/InnovaZones.react-native-device-info.iml" filepath="$PROJECT_DIR$/.idea/modules/-414808428/InnovaZones.react-native-device-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1665191393/InnovaZones.react-native-fetch-blob.iml" filepath="$PROJECT_DIR$/.idea/modules/1665191393/InnovaZones.react-native-fetch-blob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1391222750/InnovaZones.react-native-fs.iml" filepath="$PROJECT_DIR$/.idea/modules/1391222750/InnovaZones.react-native-fs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1832621704/InnovaZones.react-native-image-crop-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/1832621704/InnovaZones.react-native-image-crop-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/513336142/InnovaZones.react-native-keep-awake.iml" filepath="$PROJECT_DIR$/.idea/modules/513336142/InnovaZones.react-native-keep-awake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1594947285/InnovaZones.react-native-local-notifications.iml" filepath="$PROJECT_DIR$/.idea/modules/1594947285/InnovaZones.react-native-local-notifications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-163086570/InnovaZones.react-native-sensitive-info.iml" filepath="$PROJECT_DIR$/.idea/modules/-163086570/InnovaZones.react-native-sensitive-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-714168128/InnovaZones.react-native-signature-capture.iml" filepath="$PROJECT_DIR$/.idea/modules/-714168128/InnovaZones.react-native-signature-capture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1875643088/InnovaZones.react-native-sound-player.iml" filepath="$PROJECT_DIR$/.idea/modules/-1875643088/InnovaZones.react-native-sound-player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/916377763/InnovaZones.react-native-spinkit.iml" filepath="$PROJECT_DIR$/.idea/modules/916377763/InnovaZones.react-native-spinkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/236115744/InnovaZones.react-native-sqlite-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/236115744/InnovaZones.react-native-sqlite-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1160940466/InnovaZones.react-native-toast-native.iml" filepath="$PROJECT_DIR$/.idea/modules/-1160940466/InnovaZones.react-native-toast-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1773444910/InnovaZones.react-native-uuid-generator.iml" filepath="$PROJECT_DIR$/.idea/modules/-1773444910/InnovaZones.react-native-uuid-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1370499446/InnovaZones.react-native-video.iml" filepath="$PROJECT_DIR$/.idea/modules/-1370499446/InnovaZones.react-native-video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2114412059/InnovaZones.react-native-zip-archive.iml" filepath="$PROJECT_DIR$/.idea/modules/-2114412059/InnovaZones.react-native-zip-archive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1492808727/InnovaZones.scandit-react-native.iml" filepath="$PROJECT_DIR$/.idea/modules/1492808727/InnovaZones.scandit-react-native.iml" />
+    </modules>
+  </component>
+</project>

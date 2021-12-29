@@ -1,0 +1,61 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.InnovaZones.RNARTreeQAIZHips">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/AppTheme"
+        tools:targetApi="m">
+
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+          android:theme="@style/AppTheme"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+            <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        </intent-filter>
+      </activity>
+
+        <activity android:name=".UHFRFID.DeviceListActivity"/>
+
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <receiver android:process=":remote" android:name="com.github.wumke.RNLocalNotifications.AlarmReceiver" android:exported="true"></receiver>
+
+        <meta-data
+            android:name="com.socketmobile.capture.APP_KEY"
+            android:value="MC0CFQDojbhe6v2QbBdco2k2E/5cEUOKhQIULXL1UulC0X8bOArTcAAF7NRp76o="/>
+        <meta-data
+            android:name="com.socketmobile.capture.DEVELOPER_ID"
+            android:value="5ea16148-b842-ea11-a812-000d3a378f47"/>
+
+    </application>
+
+</manifest>
