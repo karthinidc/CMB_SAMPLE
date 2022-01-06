@@ -293,14 +293,12 @@ class ClerkLoginScreen extends Component {
          selectedIndex: index,
          selectedTab: AUTHENTICATION_TYPE.BARCODE,
        });
-       Events.trigger('onCognexScannerResume', {isScan : 1});
      } else {
        this.setState({
          ...this.state,
          selectedIndex: index,
          selectedTab: AUTHENTICATION_TYPE.USERID,
        });
-       Events.trigger('onCognexScannerResume', {isScan : 2});
      }
  
    };

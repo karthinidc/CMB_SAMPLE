@@ -7,22 +7,22 @@
 		<key>AppCenter.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>70</integer>
+			<integer>18</integer>
 		</dict>
 		<key>AppCenterReactNativeShared.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>28</integer>
+			<integer>22</integer>
 		</dict>
 		<key>Pods-InnovaZones.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>53</integer>
+			<integer>13</integer>
 		</dict>
 		<key>SKTCaptureObjC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>43</integer>
+			<integer>15</integer>
 		</dict>
 	</dict>
 </dict>

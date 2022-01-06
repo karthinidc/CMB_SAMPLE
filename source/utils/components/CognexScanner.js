@@ -16,6 +16,7 @@ import {
   View,
   NativeEventEmitter,
   AppState,
+  Dimensions,
 } from 'react-native';
 import PropTypes from 'prop-types'; 
 import { CMBReader, cmb } from 'cmbsdk-react-native';
@@ -48,12 +49,14 @@ let applicationStateChangeListener = null;
 
   static defaultProps = {
     isVisibleScanner: false,
+    // screenType : "POPUP" || "RECTANGULAR_VIEW"
   };
 
   static propTypes = {
     onScanStop: PropTypes.func,
     isVisibleScanner: PropTypes.bool,
     onBarCodeRead: PropTypes.func,
+    screenType: PropTypes.string,
   };
 
   constructor(){
@@ -64,11 +67,14 @@ let applicationStateChangeListener = null;
       leaveAfterDisconnect: false,
       device: deviceClass,
       results: [],
+      isLandscape: false,
     };
   }
 
       // REACT NATIVE LIFECYCLE
   componentDidMount() {
+    console.log('********** @@@ componentDidMount @@@ *************:', this.props.screenType);
+
      //----------------------------------------------------------------------------
     // When an applicaiton is suspended, the connection to the scanning device needs
     // to be closed; Also, when we are resumed (become active) we
@@ -134,44 +140,45 @@ let applicationStateChangeListener = null;
       }
       this.configureReaderDevice();
 
-      Events.on('onCognexScannerResume', 'Cognex', this._cognexScannerResumEventHandlerFunc.bind(this));
+      Events.on('onCognexScannerStartScan', 'Cognex', this._cognexScannerStartScanEventHandlerFunc.bind(this));
+      Events.on('onCognexScannerStopScan', 'Cognex', this._cognexScannerStopScanEventHandlerFunc.bind(this));
 
   }
  
   componentWillUnmount() {
-    // sampleApp = null;
+    console.log('********** @@@ componentWillUnmount @@@ *************:');
+    cmb.stopScanning(); 
+    // scannerListener.removeAllListeners(CMBReader.EVENT.ReadResultReceived);
 
-    // // Remove the AppState change observer
+    // // Remove the AppState change observer 
     // applicationStateChangeListener.remove();
 
-    // // remove event listeners
-    // listenersNames = [];
-    // for (let i = listeners.length - 1; i >= 0; i--) {
-    //   listeners[i].remove();
-    // }
-    // listeners = [];
+    // remove event listeners
+    listenersNames = [];
+    for (let i = listeners.length - 1; i >= 0; i--) {
+      listeners[i].remove();
+    }
+    listeners = [];
   }
 
 
-  _cognexScannerResumEventHandlerFunc(data){
-    console.log('********** @@@ data @@@ *************:', data);
-    if( data.isScan === 2){
-      console.log('********* IF data.isScan ************:', data.isScan);
-      cmb.stopScanning();
-    }else {
-      console.log('********* ELSE data.isScan ************:', data.isScan);
-      cmb.startScanning();
-      // cmb.connect();
-    }
+  _cognexScannerStartScanEventHandlerFunc(){
+    this.createReaderDevice();
+  }
+
+  _cognexScannerStopScanEventHandlerFunc(){
+    console.log('********** @@@ _cognexScannerStopScanEventHandlerFunc @@@ *************:');
+    // cmb.stopScanning(); 
+    this.leaveScannerScreen();
   }
 
   // This is called when a sendCommand function completes
 commandCompleted(response) {
-    if (response.commandID == 'DEVICE.TYPE') {
+    if (response.commandID === 'DEVICE.TYPE') {
       // GET DEVICE.TYPE DMCC COMPLETED
     }
   
-    if (response.commandID == 'DEVICE.FIRMWARE-VER') {
+    if (response.commandID === 'DEVICE.FIRMWARE-VER') {
       // GET DEVICE.FIRMWARE-VER DMCC COMPLETED
     }
   
@@ -294,8 +301,8 @@ configureReaderDevice(){
     //-------------------------------------------------------
     // Explicitly disable symbologies we know we don't need
     //-------------------------------------------------------
-    cmb.setSymbology(CMBReader.SYMBOLOGY.QR, false, CMBReader.SYMBOLOGY_NAME.QR);
-    cmb.setSymbology(CMBReader.SYMBOLOGY.C39, false, CMBReader.SYMBOLOGY_NAME.C39);
+    cmb.setSymbology(CMBReader.SYMBOLOGY.QR, true, CMBReader.SYMBOLOGY_NAME.QR);
+    cmb.setSymbology(CMBReader.SYMBOLOGY.C39, true, CMBReader.SYMBOLOGY_NAME.C39);
   
     //---------------------------------------------------------------------------
     // Below are examples of sending DMCC commands and 
@@ -376,13 +383,15 @@ availabilityChanged(availability) {
 // Create a readerDevice using the selected option from "selectDeviceFromPicker"
 // Optionally, if you don't want to use multiple device types, you can remove the switch statement and keep only the one type that you need
      createReaderDevice(){
+
     if (this.state.connected === CMBReader.CONNECTION_STATE.Connected) {
       cmb.disconnect();
     }
   
     cmb.setCameraMode(cameraMode);
-    cmb.setPreviewContainerPositionAndSize([10,38,80,40]);
-  
+
+    this._scannerLayoutUpdate();
+
     if (Platform.OS === 'ios') {
       cmb.registerSDK('Nix6OBNkjveqDocdXuyM9docE0KeSl5QIrrvFMxEwbc=');
     } else {
@@ -398,6 +407,19 @@ availabilityChanged(availability) {
    
   }
 
+
+_scannerLayoutUpdate(){
+  const { screenType } = this.props;
+  const { isLandscape } = this.state;
+  if (screenType === 'POPUP') {
+    let paramValue = (isLandscape) ? [23, 14, 54, 60] : [15, 22, 70, 45];
+    cmb.setPreviewContainerPositionAndSize(paramValue);
+  } else {
+    let paramValue = (isLandscape) ? [20, 40, 60, 45] : [10, 38, 80, 39];
+    cmb.setPreviewContainerPositionAndSize(paramValue);
+  }
+
+}
   
 
   // Before the self.readerDevice can be configured or used, a connection needs to be established
@@ -463,10 +485,33 @@ updateDeviceType() {
     // }
   }
 
-   
+    /**
+    * Method is called when view size changed due to screen orientation changed.
+    */
+    onLayout(e) {
+      if (Platform.OS === 'ios') {
+        let deviceWidth = Dimensions.get('window').width;
+        let deviceHeight = Dimensions.get('window').height;
+         if (deviceWidth > deviceHeight) {
+           this.setState({ isLandscape: true }, ()=>{
+             this._scannerLayoutUpdate();
+           });
+         } else {
+           this.setState({ isLandscape: false }, ()=>{
+             this._scannerLayoutUpdate();
+           });
+         }
+      }
+    }
+
   render() {
     return (
-      <View style={{width: 200, height: 200, padding:'5%'}} />
+      <View 
+      style={{width: '100%', height: '100%', padding:'5%'}}
+      onLayout={this.onLayout.bind(this)}
+      />
+      
     );
   } 
  }
+
